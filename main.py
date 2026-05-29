@@ -50,7 +50,7 @@ cursor.executemany("""
 INSERT OR IGNORE INTO items
 VALUES (?, ?, ?, ?, ?)
 """, items_data)
-
+#the question marks are placeholders for the data in the items_data list, which is inserted into the items table. The "OR IGNORE" clause ensures that if an item with the same ID already exists, it will not be inserted again, preventing duplicates.
 connection.commit()
 
 
@@ -70,7 +70,7 @@ print("Available items:\n")
 
 cursor.execute("SELECT name FROM items")
 all_items = cursor.fetchall()
-
+#used to print of each thing that has - at the start.
 for item in all_items:
     print("-", item[0])
 
